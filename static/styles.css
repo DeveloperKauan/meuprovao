@@ -307,7 +307,7 @@ body.dark-mode .popup p { color: var(--text-color-dark); }
 }
 
 .containerCalculadora.visible {
-    max-height: 800px; /* */
+    max-height: 2500px; /* alto o suficiente para acomodar o simulador completo */
     visibility: visible; /* */
     opacity: 1; /* */
     margin-top: 0; /* No extra margin when visible if it's part of .main-container gap */
@@ -681,9 +681,11 @@ body.dark-mode .info-trigger { color: var(--accent-color); border-color: var(--a
         display: none;
     }
 
-    /* Ocultar calculadora principal (desktop) em telas mobile */
-    .main-container > .containerCalculadora {
-        display: none !important; 
+    /* Ocultar APENAS a calculadora do formulário (que é clonada para o menu mobile)
+       no mobile. NÃO esconder o simulador da home (#calculatorContainer), pois ele
+       é alternado pelo botão "Simular Nota" do menu mobile. */
+    .main-container > #calculatorContainerSubmit {
+        display: none !important;
     }
 
     .mobile-menu-toggle {
